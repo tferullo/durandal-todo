@@ -7,7 +7,6 @@ var file = './public/todos.json';
 router.put('/',function(req, res, next){
   var data = fs.readFileSync(file);
   var results = JSON.parse(data);
-  console.log('request', req.body)
 
   for (var i=0; i < results.length; i++) {
     if (results[i].id == req.body.id) {
