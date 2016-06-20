@@ -1,0 +1,19 @@
+<section class="task-board">
+  <ul data-bind="foreach: todoList" class="todo-list">
+    <div data-bind="css: {editActive: $parent.shouldEdit() == id, completed: completed == true}" class="todo">
+      <p class="todo-text" data-bind="text:todo" />
+        <button data-bind="click:$parent.completeToDo" class="complete-button">complete</button>
+        <button data-bind="click:$parent.editToDo" class="edit-button">edit</button>
+        <button data-bind="click:$parent.deleteToDo" class="delete-button">delete</button>
+        <form class="edit" data-bind="submit:$parent.editSubmit" method="post">
+          <input type="text" data-bind="value:$parent.editValue" name="todo"/>
+        </form>
+    </div>
+  </ul>
+</section>
+<form data-bind="submit:addToDo" method="post" class="add-form">
+  <input type="text" data-bind="value:activeTodo" name="todo" placeholder="enter to-do" />
+  <button type="submit">Submit</button>
+</form>
+<!-- <button data-bind="click:clearToDo">delete</button> -->
+</section>
